@@ -1,12 +1,25 @@
 const express = require("express");
 const router = express.Router();
-
-router.get("/courses", (req, res) => {
-  res.send("ROTA DE CURSOS");
-});
+const Course = require("./Course");
 
 router.get("/admin/courses/new", (req, res) => {
-  res.send("ROTA PARA CRIAR UM NOVO CURSO!");
+  res.render("admin/courses/new");
+});
+
+router.post("/courses/save", (req, res) => {
+  let nome = req.body.nome;
+  let cargaHoraria = req.body.cargaHoraria;
+
+  if (nome != undefined && cargaHoraria != undefined) {
+    Course.create({
+      nome: nome,
+      cargaHoraria: cargaHoraria,
+    }).then(() => {
+      res.redirect("/");
+    });
+  } else {
+    res.redirect("/admin/courses/new");
+  }
 });
 
 module.exports = router;
