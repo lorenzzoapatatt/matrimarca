@@ -7,13 +7,13 @@ router.get("/admin/courses/new", (req, res) => {
 });
 
 router.post("/courses/save", (req, res) => {
-  let nome = req.body.nome;
-  let cargaHoraria = req.body.cargaHoraria;
+  let name = req.body.name;
+  let workload = req.body.workload;
 
-  if (nome != undefined && cargaHoraria != undefined) {
+  if (name != undefined && workload != undefined) {
     Course.create({
-      nome: nome,
-      cargaHoraria: cargaHoraria,
+      name: name,
+      workload: workload,
     }).then(() => {
       res.redirect("/admin/courses");
     });
@@ -40,7 +40,7 @@ router.post("/courses/delete", (req, res) => {
         res.redirect("/admin/courses");
       });
     } else {
-      // nao for um numero
+      // not a number
       res.redirect("/admin/courses");
     }
   } else {
@@ -52,7 +52,7 @@ router.post("/courses/delete", (req, res) => {
 router.get("/admin/courses/edit/:id", (req, res) => {
   var id = req.params.id;
 
-  //ve se é um numero
+  //checks if it's a number
   if (isNaN(id)) {
     res.redirect("/admin/courses");
   }

@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/alunos", (req, res) => {
-  res.send("ROTA DE ALUNOS");
+router.get("/students", (req, res) => {
+  res.send("STUDENTS ROUTE");
 });
 
-router.get("/admin/alunos/new", (req, res) => {
-  res.send("ROTA PARA CRIAR UM NOVO ALUNO!");
+router.get("/admin/students/new", (req, res) => {
+  res.send("ROUTE TO CREATE A NEW STUDENT!");
 });
 
 module.exports = router;

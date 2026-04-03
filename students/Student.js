@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const connection = require("../database/database");
 const Course = require("../courses/Course");
 
-const Student = connection.define("alunos", {
+const Student = connection.define("students", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -17,10 +17,10 @@ const Student = connection.define("alunos", {
   },
 });
 
-Course.hasMany(Student); // um curso tem varios alunos
-Student.belongsTo(Course); //um aluno pertence a um curso
+Course.hasMany(Student); // a course has many students
+Student.belongsTo(Course); //a student belongs to a course
 
-// vai ficar forçando a criar uma tabela
+// will force table creation
 // Student.sync({ force: true });
 
 module.exports = Student;
