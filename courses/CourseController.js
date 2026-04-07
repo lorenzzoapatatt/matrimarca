@@ -70,4 +70,21 @@ router.get("/admin/courses/edit/:id", (req, res) => {
     });
 });
 
+router.post("/courses/update", (req, res) => {
+  var id = req.body.id;
+  var nome = req.body.nome;
+  var cargaHoraria = req.body.cargaHoraria;
+
+  Course.update(
+    { nome: nome, cargaHoraria: cargaHoraria },
+    {
+      where: {
+        id: id,
+      },
+    },
+  ).then(() => {
+    res.redirect("/admin/courses");
+  });
+});
+
 module.exports = router;
