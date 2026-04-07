@@ -21,7 +21,7 @@
                     <td><%= course.cargaHoraria %></td>
                     <td>
                         <form //botar style="display: inline;">
-                            <button class="btn btn-warning">Editar</button>
+                            <a href="/admin/courses/edit/<%= course.id %>" class="btn btn-warning">Editar</a>
                         </form>
                         <form method="post" action="/courses/delete" style="display: inline;" onsubmit="confirmDelete(event, this)"> 
                             <input type="hidden" name="id" value="<%= course.id %>">

@@ -7,12 +7,12 @@
     <form action="/courses/save" method="POST">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome do curso</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
+            <input type="text" class="form-control" id="nome" name="nome" value="<%= courses.nome %>" required>
         </div>
 
         <div class="mb-3">
             <label for="cargaHoraria" class="form-label">Carga horária</label>
-            <input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria" value="<%= courses.nome %>" required>
+            <input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria" value="<%= courses.cargaHoraria %>" required>
         </div>
 
         <button type="submit" class="btn btn-dark">Editar</button>
