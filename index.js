@@ -12,7 +12,7 @@ const Course = require("./courses/Course");
 //view engine
 app.set("view engine", "ejs");
 
-//arquivos estaticos
+//static files
 app.use(express.static("public"));
 
 //body parser
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 connection
   .authenticate()
   .then(() => {
-    console.log("sucesso");
+    console.log("success");
   })
   .catch((error) => {
     console.log(error);
@@ -38,5 +38,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8080, (req, res) => {
-  console.log("rodando");
+  console.log("running");
 });

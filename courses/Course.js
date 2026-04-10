@@ -2,17 +2,17 @@ const Sequelize = require("sequelize");
 const connection = require("../database/database");
 
 const Course = connection.define("courses", {
-  nome: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  cargaHoraria: {
+  workload: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
 });
 
-// vai ficar forçando a criar uma tabela
+// will force create a table
 // Course.sync({ force: true });
 
 module.exports = Course;
