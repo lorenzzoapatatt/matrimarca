@@ -1,0 +1,28 @@
+<%- include('../../partials/header'); %>
+<%- include('../../partials/navbar'); %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Student</h2>
+
+    <form action="/students/update" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Student name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%= students.name %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%= students.email %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="dateBirth" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" id="dateBirth" name="dateBirth" value="<%= students.dateBirth %>" required>
+        </div>
+
+        <input type="hidden" name="id" value="<%= students.id %>">
+        <button type="submit" class="btn btn-dark">Edit</button>
+    </form>
+</div>
+
+<%- include('../../partials/footer'); %>
