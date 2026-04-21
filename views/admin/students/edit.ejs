@@ -20,6 +20,24 @@
             <input type="date" class="form-control" id="dateBirth" name="dateBirth" value="<%= students.dateBirth %>" required>
         </div>
 
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" value="<%= students.password %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="<%= students.phone %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="certified" class="form-label">Certified</label>
+            <select class="form-control" id="certified" name="certified" required>
+                <option value="yes" <%= students.certified === "yes" ? "selected" : "" %>>Yes</option>
+                <option value="no" <%= students.certified === "no" ? "selected" : "" %>>No</option>
+            </select>
+        </div>
+
         <input type="hidden" name="id" value="<%= students.id %>">
         <button type="submit" class="btn btn-dark">Edit</button>
     </form>

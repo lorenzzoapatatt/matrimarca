@@ -15,6 +15,28 @@ const Student = connection.define("students", {
     type: Sequelize.DATE,
     allowNull: false,
   },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  phone: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  certified: {
+    type: Sequelize.ENUM(["yes", "no"]),
+    allowNull: false,
+  },
+  created_at: {
+    type: Sequelize.DATE,
+    allowNull: false,
+    defaultValue: Sequelize.NOW,
+  },
+  updated_at: {
+    type: Sequelize.DATE,
+    allowNull: false,
+    defaultValue: Sequelize.NOW,
+  },
 });
 
 Course.hasMany(Student); // a course has many students

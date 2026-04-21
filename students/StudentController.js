@@ -10,12 +10,18 @@ router.post("/students/save", (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
   let dateBirth = req.body.dateBirth;
+  let password = req.body.password;
+  let phone = req.body.phone;
+  let certified = req.body.certified;
 
   if (name != undefined && email != undefined && dateBirth != undefined) {
     Student.create({
       name: name,
       email: email,
       dateBirth: dateBirth,
+      password: password,
+      phone: phone,
+      certified: certified,
     }).then(() => {
       res.redirect("/admin/students");
     });
@@ -77,9 +83,19 @@ router.post("/students/update", (req, res) => {
   var name = req.body.name;
   var email = req.body.email;
   var dateBirth = req.body.dateBirth;
+  var password = req.body.password;
+  var phone = req.body.phone;
+  var certified = req.body.certified;
 
   Student.update(
-    { name: name, email: email, dateBirth: dateBirth },
+    {
+      name: name,
+      email: email,
+      dateBirth: dateBirth,
+      password: password,
+      phone: phone,
+      certified: certified,
+    },
     {
       where: {
         id: id,
