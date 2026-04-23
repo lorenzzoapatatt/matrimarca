@@ -15,6 +15,24 @@
             <input type="number" class="form-control" id="workload" name="workload" value="<%= courses.workload %>" required>
         </div>
 
+        <div class="mb-3">
+            <label for="type" class="form-label">Type</label>
+            <select class="form-select" id="type" name="type" required>
+                <option value="presential" <%= courses.type === 'presential' ? 'selected' : '' %>>Presential</option>
+                <option value="online" <%= courses.type === 'online' ? 'selected' : '' %>>Online</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3"><%= courses.description %></textarea>
+        </div>
+
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="is_active" name="is_active" <%= courses.is_active ? 'checked' : '' %>>
+            <label class="form-check-label" for="is_active">Active</label>
+        </div>
+
         <input type="hidden" name="id" value="<%= courses.id %>">
         <button type="submit" class="btn btn-dark">Edit</button>
     </form>

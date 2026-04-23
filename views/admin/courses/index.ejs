@@ -10,6 +10,8 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Workload</th>
+                <th>Type</th>
+                <th>Active</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,6 +21,8 @@
                     <td><%= course.id %></td>
                     <td><%= course.name %></td>
                     <td><%= course.workload %></td>
+                    <td><%= course.type %></td>
+                    <td><%= course.is_active ? 'Yes' : 'No' %></td>
                     <td>
                         <form //botar style="display: inline;">
                             <a href="/admin/courses/edit/<%= course.id %>" class="btn btn-warning">Edit</a>

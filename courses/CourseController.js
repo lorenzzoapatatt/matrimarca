@@ -9,11 +9,17 @@ router.get("/admin/courses/new", (req, res) => {
 router.post("/courses/save", (req, res) => {
   let name = req.body.name;
   let workload = req.body.workload;
+  let type = req.body.type;
+  let description = req.body.description;
+  let is_active = req.body.is_active === "on";
 
-  if (name != undefined && workload != undefined) {
+  if (name != undefined && workload != undefined && type != undefined) {
     Course.create({
       name: name,
       workload: workload,
+      type: type,
+      description: description,
+      is_active: is_active,
     }).then(() => {
       res.redirect("/admin/courses");
     });
@@ -74,9 +80,18 @@ router.post("/courses/update", (req, res) => {
   var id = req.body.id;
   var name = req.body.name;
   var workload = req.body.workload;
+  var type = req.body.type;
+  var description = req.body.description;
+  var is_active = req.body.is_active === "on";
 
   Course.update(
-    { name: name, workload: workload },
+    {
+      name: name,
+      workload: workload,
+      type: type,
+      description: description,
+      is_active: is_active,
+    },
     {
       where: {
         id: id,
