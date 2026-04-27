@@ -7,7 +7,14 @@ router.get("/admin/users", (req, res) => {
 });
 
 router.get("/admin/users/create", (req, res) => {
-  res.send("Rota de criação de usuários");
+  res.render("admin/users/create");
+});
+
+router.post("/users/create", (req, res) => {
+  let email = req.body.email;
+  let password = req.body.password;
+
+  res.json({ email, password });
 });
 
 module.exports = router;

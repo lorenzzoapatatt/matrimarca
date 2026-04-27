@@ -5,6 +5,7 @@ const connection = require("./database/database");
 
 const courseController = require("./courses/CourseController");
 const studentController = require("./students/StudentController");
+const userController = require("./users/userController");
 
 const Student = require("./students/Student");
 const Course = require("./courses/Course");
@@ -20,8 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Database synchronization
-// Student.sync({ alter: true });
-// Course.sync({ alter: true });
+// Student.sync({ force: false });
+// Course.sync({ force: false });
+// User.sync({ force: false });
+// Se quisar remodelar o banco bote para true
 
 //Database
 connection
@@ -35,6 +38,7 @@ connection
 
 app.use("/", courseController);
 app.use("/", studentController);
+app.use("/", userController);
 
 app.get("/", (req, res) => {
   res.render("index");
