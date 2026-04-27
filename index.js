@@ -19,8 +19,11 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//Database
+//Database synchronization
+// Student.sync({ alter: true });
+// Course.sync({ alter: true });
 
+//Database
 connection
   .authenticate()
   .then(() => {
