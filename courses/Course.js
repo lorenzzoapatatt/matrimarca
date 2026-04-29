@@ -1,37 +1,30 @@
-const Sequelize = require("sequelize");
+const { DataTypes } = require("sequelize");
 const connection = require("../database/database");
 
-const Course = connection.define(
-  "courses",
-  {
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    workload: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-    },
-    type: {
-      type: Sequelize.ENUM("presential", "online"),
-      allowNull: false,
-      defaultValue: "presential",
-    },
-    description: {
-      type: Sequelize.TEXT,
-      allowNull: true,
-    },
-    is_active: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false,
-      defaultValue: true,
-    },
+const Course = connection.define("courses", {
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
-  {
-    timestamps: true,
-    underscored: true,
+  workload: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
-);
+  type: {
+    type: DataTypes.ENUM("presential", "online"),
+    allowNull: false,
+    defaultValue: "presential",
+  },
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  is_active: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: true,
+  },
+});
 
 // will force create a table
 // Course.sync({ force: true });

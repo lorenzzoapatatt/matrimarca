@@ -1,41 +1,41 @@
-const Sequelize = require("sequelize");
+const { DataTypes } = require("sequelize");
 const connection = require("../database/database");
 const Course = require("../courses/Course");
 
 const Student = connection.define("students", {
   name: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   email: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   dateBirth: {
-    type: Sequelize.DATE,
+    type: DataTypes.DATE,
     allowNull: false,
   },
   password: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   phone: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   certified: {
-    type: Sequelize.ENUM(["yes", "no"]),
+    type: DataTypes.ENUM(["yes", "no"]),
     allowNull: false,
   },
   created_at: {
-    type: Sequelize.DATE,
+    type: DataTypes.DATE,
     allowNull: false,
-    defaultValue: Sequelize.NOW,
+    defaultValue: DataTypes.NOW,
   },
   updated_at: {
-    type: Sequelize.DATE,
+    type: DataTypes.DATE,
     allowNull: false,
-    defaultValue: Sequelize.NOW,
+    defaultValue: DataTypes.NOW,
   },
 });
 
